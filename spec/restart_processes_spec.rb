@@ -9,12 +9,12 @@ describe Blazing::Recipe::RestartProcesses do
   describe 'run' do
 
     before :each do
-      @recipe = Blazing::Recipe::RestartProcesses.new
+      @recipe = Blazing::Recipe::RestartProcesses.new(:app => 'testing')
       @recipe.stub(:info)
     end
 
-    it 'calls the jammit compile rake task' do
-      @recipe.should_receive(:system).with("bundle exec jammit")
+    it 'call upstart for start or restart by default' do
+      @recipe.should_receive(:system).with("sudo initctl start testing || sudo initctl restart testing")
       @recipe.run
     end
 

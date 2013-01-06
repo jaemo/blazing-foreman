@@ -13,8 +13,8 @@ describe Blazing::Recipe::DeployProcesses do
       @recipe.stub(:info)
     end
 
-    it 'calls the jammit compile rake task' do
-      @recipe.should_receive(:system).with("bundle exec jammit")
+    it 'call to foreman export by default' do
+      @recipe.should_receive(:system).with("sudo foreman export upstart /etc/init")
       @recipe.run
     end
 

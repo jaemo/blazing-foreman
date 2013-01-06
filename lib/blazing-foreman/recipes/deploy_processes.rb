@@ -1,13 +1,11 @@
 require 'blazing/recipe'
+require 'active_support/core_ext/object/blank'
 
 class Blazing::Recipe::DeployProcesses < Blazing::Recipe
 
   def initialize(options={})
     super
-    @options.merge! {
-      :format => 'upstart',
-      :location => '/etc/init'
-    }
+    @options.merge! :format => 'upstart', :location => '/etc/init'
   end
 
   def run(target_options = {})

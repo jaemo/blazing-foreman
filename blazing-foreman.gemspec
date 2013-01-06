@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "blazing", '>= 0.2.9'
+  s.add_dependency "activesupport"
   s.add_dependency "foreman"
 end
