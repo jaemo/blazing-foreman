@@ -13,9 +13,16 @@ describe Blazing::Recipe::RestartProcesses do
       @recipe.stub(:info)
     end
 
-    it 'call upstart for start or restart by default' do
+    it 'should call upstart for start or restart by default' do
       @recipe.should_receive(:system).with("sudo initctl start testing || sudo initctl restart testing")
       @recipe.run
+    end
+
+    it 'should reload processes passed for reload' do
+      procfile = double("procfile", :entries => {'web' => 'unicorn'})
+      Foreman::Procfile.should_receive(:new) { procfile }
+      @recipe.should_receive(:system).with("sudo initctl start testing-web || sudo initctl reload testing-web")
+      @recipe.run :reload => ['web']
     end
 
   end

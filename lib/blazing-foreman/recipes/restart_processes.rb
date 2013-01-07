@@ -32,7 +32,7 @@ class Blazing::Recipe::RestartProcesses < Blazing::Recipe
   end
 
   def restart_command(process)
-    options[:reload].include? process ? "reload" : "restart"
+    options[:reload].include?(process) ? "reload" : "restart"
   end
 
   def procfile
