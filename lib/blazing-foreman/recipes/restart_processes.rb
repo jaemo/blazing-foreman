@@ -40,7 +40,7 @@ class Blazing::Recipe::RestartProcesses < Blazing::Recipe
   end
 
   def processes
-    Foreman::Procfile.new(procfile).entries.keys
+    Foreman::Procfile.new(procfile).entries{}.collect {|entry| entry.first }
   end
 
   def sudo
