@@ -10,10 +10,10 @@ class Blazing::Recipe::RestartProcesses < Blazing::Recipe
     if complex_restart?
       processes.each do |process|
         restart = restart_command process
-        system "#{sudo} initctl start #{application}-#{process} || #{sudo} initctl #{restart} #{application}-#{process}"
+        system "#{sudo} service #{application}-#{process} start  || #{sudo} service #{application}-#{process} #{restart}"
       end
     else
-      system "#{sudo} initctl start #{application} || #{sudo} initctl restart #{application}"
+      system "#{sudo} service #{application} start  || #{sudo} service #{application} restart"
     end
   end
 
