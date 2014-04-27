@@ -13,7 +13,7 @@ class Blazing::Recipe::RestartProcesses < Blazing::Recipe
         system "#{sudo} service #{application}-#{process} start  || #{sudo} service #{application}-#{process} #{restart}"
       end
     else
-      system "#{sudo} service #{application} start  || #{sudo} service #{application} restart"
+      system "#{sudo} service #{application} restart"
     end
   end
 
