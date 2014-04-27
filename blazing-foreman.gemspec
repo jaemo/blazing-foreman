@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Daniel Farrell"]
   s.email       = ["danielfarrell76@gmail.com"]
   s.homepage    = "https://github.com/danielfarrell/blazing-foreman"
-  s.summary     = %q{blazing recipes for deploying processes with foreman}
-  s.description = %q{blazing recipes for deploying processes with foreman}
+  s.summary     = %q{blazing recipes for deploying processes with foreman, debian variant}
+  s.description = %q{blazing recipes for deploying processes with foreman, debian variant}
 
   s.rubyforge_project = "blazing-foreman"
 
